@@ -1,0 +1,86 @@
+{
+  "expo": {
+    "name": "Sky",
+    "slug": "sky",
+    "owner": "akashmk18s-team",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "scheme": "sky",
+    "userInterfaceStyle": "dark",
+    "newArchEnabled": true,
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#0A0F1D"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.sky.assistant",
+      "infoPlist": {
+        "NSContactsUsageDescription": "Allow Sky to access your contacts to call or send automated messages on your behalf.",
+        "NSPhotoLibraryUsageDescription": "Allow Sky to access photos to analyze itineraries, syllabi, and notes.",
+        "NSMicrophoneUsageDescription": "Allow Sky to access the microphone for AI voice calling."
+      }
+    },
+    "android": {
+      "package": "com.sky.assistant",
+      "adaptiveIcon": {
+        "backgroundColor": "#070A12",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false,
+      "permissions": [
+        "android.permission.INTERNET",
+        "android.permission.ACCESS_NETWORK_STATE",
+        "android.permission.READ_CONTACTS",
+        "android.permission.CALL_PHONE",
+        "android.permission.POST_NOTIFICATIONS",
+        "android.permission.VIBRATE",
+        "android.permission.RECORD_AUDIO",
+        "android.permission.WRITE_CONTACTS"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro"
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/94fac2e8-ad30-44c3-9be0-65bcad369665",
+      "enabled": true,
+      "checkAutomatically": "ON_LOAD",
+      "fallbackToCacheTimeout": 0
+    },
+    "plugins": [
+      "expo-router",
+      "expo-updates",
+      [
+        "expo-contacts",
+        {
+          "contactsPermission": "Allow Sky to access your contacts to call or send automated messages on your behalf."
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Allow Sky to access photos to extract schedules and tasks."
+        }
+      ]
+    ],
+    "extra": {
+      "router": {
+        "asyncRoutes": {
+          "web": true
+        }
+      },
+      "eas": {
+        "projectId": "94fac2e8-ad30-44c3-9be0-65bcad369665"
+      }
+    }
+  }
+}
