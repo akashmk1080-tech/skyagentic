@@ -91,6 +91,19 @@ export const SupabaseConfigModal: React.FC<SupabaseConfigModalProps> = ({ visibl
     }
   };
 
+  const handleCheckUpdates = async () => {
+    setLoading(true);
+    setSyncStatusMsg('Checking EAS Over-The-Air Update servers...');
+    try {
+      const res = await UpdatesService.checkManually();
+      setSyncStatusMsg(res.message);
+    } catch (e: any) {
+      setSyncStatusMsg(`Update check: ${e.message}`);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <Modal visible={visible} animationType="slide" transparent onRequestClose={onClose}>
       <View style={styles.overlay}>
@@ -202,6 +215,17 @@ export const SupabaseConfigModal: React.FC<SupabaseConfigModalProps> = ({ visibl
               >
                 <Ionicons name="sync" size={18} color={COLORS.cyan} />
                 <Text style={styles.btnTextSecondary}>Trigger Cloud Sync Now</Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity
+                style={styles.secondaryBtn}
+                onPress={handleCheckUpdates}
+                disabled={loading}
+              >
+                <Ionicons name="cloud-download-outline" size={18} color={COLORS.skyBlue} />
+                <Text style={[styles.btnTextSecondary, { color: COLORS.skyBlue }]}>
+                  Check for Over-The-Air App Updates
+                </Text>
               </TouchableOpacity>
             </View>
           </ScrollView>

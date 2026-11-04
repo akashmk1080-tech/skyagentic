@@ -85,6 +85,17 @@ npx expo start --android
 npx expo start
 ```
 
+### Instant Over-The-Air (OTA) Updates for Users
+
+Whenever you make code changes or add new features, publish an instant OTA update:
+
+```bash
+# Push updates instantly to every installed user app without reinstalling APK
+npx eas-cli@latest update --branch preview --message "Added new features"
+```
+
+Every user's app checks for and downloads this update automatically on launch!
+
 ### Type Checking & Build Verification
 ```bash
 npx tsc --noEmit

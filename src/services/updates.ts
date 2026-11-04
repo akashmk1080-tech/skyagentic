@@ -126,3 +126,4 @@ class UpdatesServiceManager {
 }
 
 export const UpdatesService = new UpdatesServiceManager();
+
